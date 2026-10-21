@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "MADToken",
+    "name": "Mutually Assured Destruction",
+    "symbol": "MAD",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xa0df17b5ac76ababa36e1450e2cbcd18a620c845",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "2000000000000000000000000",
+    "remainderTo": "0x1ee3ffadfe138415a2ddaedeebe5f46616fa413d"
+  },
+  "notes": "MADToken (src/MADToken.sol) is a plain, fixed-supply ERC-20 built on OpenZeppelin v5.4.0 ERC20 with no custom transfer logic. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 MAD (1000000000000000000000000000 minor units, 18 decimals) once to msg.sender, which on this launch is the ProjectFactory; the factory then forwards the swarm share to the launch's MerkleDistributor, seeds the single-sided Uniswap v4 pool paired with FWA, and sends the remainder to economics.remainderTo. The token has no owner, no minter, no mint or burn function, no pause, no blacklist, no fee or tax on transfer, no upgradeability, no delegatecall and no selfdestruct, so every launch flow moves exactly the amount requested and no address needs exempting: the token takes no $factory, $poolManager or $launchNumber argument. The supply can never grow after construction. There are no application contracts and no initialization calls."
+}
